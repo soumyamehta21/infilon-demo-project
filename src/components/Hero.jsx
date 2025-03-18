@@ -4,26 +4,33 @@ import fishingImage from "../assets/fishing.png";
 
 const HeroSection = () => {
   const theme = useTheme();
+
   return (
     <div style={{ backgroundColor: theme.palette.neutral[2] }}>
       <Box
         sx={{
           display: "flex",
-          flexDirection: { xs: "column", md: "row" },
+          flexDirection: { xs: "column-reverse", sm: "row" },
           alignItems: "center",
           justifyContent: "space-between",
           maxWidth: "1024px",
           margin: "0 auto",
-          padding: {
-            xs: "80px 16px",
-            md: "80px 24px",
-            lg: "80px 24px",
-            xl: "80px 0",
+          padding: { sm: "40px 24px", md: "80px 24px", xl: "80px 0" },
+          ["@media (max-width:480px)"]: {
+            flexDirection: "column-reverse",
+            padding: "0",
           },
-          backgroundColor: theme.palette.neutral[2],
         }}
       >
-        <Box sx={{ maxWidth: "600px" }}>
+        <Box
+          sx={{
+            maxWidth: "600px",
+            padding: { xs: "40px 24px", sm: "0px" },
+            ["@media (max-width:480px)"]: {
+              padding: "40px 24px",
+            },
+          }}
+        >
           <Typography
             sx={{
               fontFamily: theme.typography.default,
@@ -65,16 +72,8 @@ const HeroSection = () => {
               color: theme.palette.neutral[5],
               borderRadius: "4px",
               padding: "8px 12px",
-              position: "relative",
               textTransform: "initial",
               "&:hover": { backgroundColor: "brown.light" },
-              "&:focus": {
-                border: `2px solid ${theme.palette.neutral[90]}`,
-                borderRadius: "5px",
-                outline: "none",
-                backgroundColor: "brown.default",
-              },
-              "&:active": { backgroundColor: theme.palette.brown.dark },
             }}
           >
             Get started
@@ -86,10 +85,16 @@ const HeroSection = () => {
           src={fishingImage}
           alt="Fishing"
           sx={{
-            width: "400px",
-            height: "300px",
-            display: { xs: "none", md: "block" },
+            width: "100%",
+            maxWidth: { xs: "100%", sm: "400px" },
+            height: { xs: "auto", sm: "300px" },
             objectFit: "cover",
+            marginBottom: { xs: "0px", sm: "0" },
+            ["@media (max-width:480px)"]: {
+              maxWidth: "100%",
+              height: "500px",
+              marginBottom: "0px",
+            },
           }}
         />
       </Box>
