@@ -1,6 +1,6 @@
 import { Box, Typography, Button } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-const About = () => {
+const Contacts = () => {
   const theme = useTheme();
   return (
     <div style={{ backgroundColor: theme.palette.neutral[2] }}>
@@ -34,4 +34,4 @@ const About = () => {
     </div>
   );
 };
-export default About;
+export default Contacts;
